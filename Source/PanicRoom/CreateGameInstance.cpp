@@ -1,6 +1,7 @@
 
 #include "CreateGameInstance.h"
 #include "Kismet/GameplayStatics.h"
+#include "Kismet/KismetSystemLibrary.h"
 #include "GameFramework/PlayerState.h"
 #include "Engine/World.h"
 
@@ -67,6 +68,11 @@ void UCreateGameInstance::FindServer()
 	SessionSearch->QuerySettings.Set(SEARCH_PRESENCE, true, EOnlineComparisonOp::Equals);
 
 	SessionInterface->FindSessions(0, SessionSearch.ToSharedRef());
+}
+
+void UCreateGameInstance::GameExit()
+{
+	UKismetSystemLibrary::QuitGame(GetWorld(), UGameplayStatics::GetPlayerController(GetWorld(), 0),EQuitPreference::Quit,false);
 }
 
 

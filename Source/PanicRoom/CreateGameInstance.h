@@ -39,6 +39,10 @@ public:
 	void JoinServer(FServerInfo Info);
 	UFUNCTION(BlueprintCallable)
 	void FindServer();
+	//game exit
+	UFUNCTION(BlueprintCallable)
+	void GameExit();
+
 
 	//µ®∏Æ∞‘¿Ã∆Æ
 	UPROPERTY(BlueprintAssignable)
